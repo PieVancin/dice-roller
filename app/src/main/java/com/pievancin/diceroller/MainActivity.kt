@@ -11,21 +11,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // a listener of a button that calls the rollDice function
         val rollButton: Button = findViewById(R.id.button)
-        rollButton.setOnClickListener {
-            rollDice()
-        }
+        rollButton.setOnClickListener { rollDice() }
     }
 
     private fun rollDice() {
+        // create new Dice with 6 sides and rolls it
         val dice = Dice(6)
         val diceRoll = dice.roll()
+        // shows the returned number inside a textView
         val resultTextView: TextView = findViewById(R.id.textView)
         resultTextView.text = diceRoll.toString()
     }
 }
 
+// dice abstraction class that contains sides and a function
 class Dice(private val numSides: Int) {
+    // a function that rolls the dice and return a random number
     fun roll(): Int {
         return (1..numSides).random()
     }
