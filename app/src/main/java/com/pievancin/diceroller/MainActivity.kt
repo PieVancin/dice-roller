@@ -23,6 +23,12 @@ class MainActivity : AppCompatActivity() {
         // shows the returned number inside a textView
         val resultTextView: TextView = findViewById(R.id.textView)
         resultTextView.text = diceRoll.toString()
+
+        val dice2 = Dice(20)
+        val diceRoll2 = dice2.roll()
+
+        val resultTextView2: TextView = findViewById(R.id.textView2)
+        resultTextView2.text = diceRoll2.toString()
     }
 }
 
