@@ -3,6 +3,7 @@ package com.pievancin.diceroller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
@@ -20,9 +21,9 @@ class MainActivity : AppCompatActivity() {
         // create new Dice with 6 sides and rolls it
         val dice = Dice(6)
         val diceRoll = dice.roll()
-        // shows the returned number inside a textView
-        val resultTextView: TextView = findViewById(R.id.textView)
-        resultTextView.text = diceRoll.toString()
+        // shows the returned dice number inside a imageView
+       val diceImage: ImageView = findViewById(R.id.imageView)
+        diceImage.setImageResource(R.drawable.dice_2)
     }
 }
 
