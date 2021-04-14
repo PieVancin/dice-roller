@@ -15,22 +15,32 @@ class MainActivity : AppCompatActivity() {
         // a listener of a button that calls the rollDice function
         val rollButton: Button = findViewById(R.id.button)
         rollButton.setOnClickListener { rollDice() }
+
+        // do a dice roll when the app starts
+        rollDice()
     }
 
     private fun rollDice() {
         // create new Dice with 6 sides and rolls it
         val dice = Dice(6)
         val diceRoll = dice.roll()
-        // shows the returned dice number inside a imageView
-       val diceImage: ImageView = findViewById(R.id.imageView)
-        when (diceRoll) {
-            1 -> diceImage.setImageResource(R.drawable.dice_1)
-            2 -> diceImage.setImageResource(R.drawable.dice_2)
-            3 -> diceImage.setImageResource(R.drawable.dice_3)
-            4 -> diceImage.setImageResource(R.drawable.dice_4)
-            5 -> diceImage.setImageResource(R.drawable.dice_5)
-            6 -> diceImage.setImageResource(R.drawable.dice_6)
+
+        // stores the imageView into a variable
+        val diceImage: ImageView = findViewById(R.id.imageView)
+
+        // determine which drawable resource will be returned based on the dice roll
+        val drawableResource = when (diceRoll) {
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
         }
+        // shows the returned dice image inside the imageView
+        diceImage.setImageResource(drawableResource)
+
+        diceImage.contentDescription = diceRoll.toString()
     }
 }
 
